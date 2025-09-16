@@ -33,18 +33,29 @@ function App() {
   },[]);
 
   return (
-    <div>
-      <h1>Create Authors</h1>
-      <label>Author Name: </label>
-      <input 
-        type='text' 
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button type='submit' onClick={handleSubmit}> Create Authors</button>
-      <h2>Authors list</h2>
-        <ul>
-          {authors.map((author) => <li key={author.id} >{author.name}</li>
+    <div className='min-h-screen bg-gray-100 flex flex-col items-center p-8'>
+      <h1 className='text-3xl font-bold text-blue-600 mb-6'>Create Authors</h1>
+      <div className='flex gap-3 mb-6'>
+        <input
+          className='border border-gray-300 rounded:lg px-4 py-1 focus:ring-2 focus:ring-blue-500' 
+          type='text' 
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button 
+          className='bg-blue-500 text-white rounded:lg hover:bg-blue-600 transition px-3' 
+          type='submit' 
+          onClick={handleSubmit}
+        > 
+          Create Authors
+        </button>
+      </div>
+      <h2 className='text-2xl font-semibold text-gray-700 mb-3'>Authors list</h2>
+        <ul className='bg-white shadow-md rounded:lg p-4 w-80'>
+          {authors.map((author) => 
+            <li 
+              key={author.id}
+              className='border-b last:border-none py-2 text-gray-800' >{author.name}</li>
           )}
         </ul>
     </div>
